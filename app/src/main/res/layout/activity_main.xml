@@ -16,7 +16,7 @@
         android:layout_marginTop="5dp">
 
         <Button
-            android:id="@+id/home_button"
+            android:id="@+id/home_button_mp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -25,7 +25,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/Service_button"
+            android:id="@+id/service_button_mp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SERVICE"
@@ -34,7 +34,7 @@
             android:layout_marginTop="5dp"/>
 
         <Button
-            android:id="@+id/profile_button"
+            android:id="@+id/profile_button_mp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -43,7 +43,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/about_us_button"
+            android:id="@+id/about_us_button_mp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

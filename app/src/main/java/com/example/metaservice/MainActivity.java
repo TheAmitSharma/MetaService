@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     //Initializing variables
     Spinner spinner, spinner2;
     TextView textView, textView2;
-    Button cancel_button, profile_button;
+    Button cancel_button, services_button_mp, profile_button_mp, about_us_mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         textView = findViewById(R.id.text_view);
         cancel_button = findViewById(R.id.cancel_button);
-        profile_button = findViewById(R.id.profile_button);
+        profile_button_mp = findViewById(R.id.profile_button_mp);
+        services_button_mp = findViewById(R.id.service_button_mp);
+        about_us_mp = findViewById(R.id.about_us_button_mp);
 
 
 
@@ -47,10 +49,26 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        profile_button.setOnClickListener(new View.OnClickListener() {
+        services_button_mp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Services.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        profile_button_mp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,UserProfile.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        about_us_mp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AboutUs.class);
                 startActivity(intent);
                 finish();
             }
