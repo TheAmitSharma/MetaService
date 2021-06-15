@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/meta_service_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MetaService">
-        <activity android:name=".Services"></activity>
+        <activity android:name=".MainActivity3"></activity>
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".Services" />
         <activity android:name=".AboutUs" />
         <activity android:name=".UserProfile" />
         <activity android:name=".SignUp" />

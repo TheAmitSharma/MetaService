@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     //Initializing variables
     Spinner spinner, spinner2;
     TextView textView, textView2;
-    Button cancel_button, services_button_mp, profile_button_mp, about_us_mp;
+    Button services_button_mp, profile_button_mp, about_us_mp,next_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +34,17 @@ public class MainActivity extends AppCompatActivity {
         //Variable for Select Category
         spinner = findViewById(R.id.spinner);
         textView = findViewById(R.id.text_view);
-        cancel_button = findViewById(R.id.cancel_button);
+
         profile_button_mp = findViewById(R.id.profile_button_mp);
         services_button_mp = findViewById(R.id.service_button_mp);
         about_us_mp = findViewById(R.id.about_us_button_mp);
+        next_button = findViewById(R.id.next_button_mp1);
 
 
-
-        cancel_button.setOnClickListener(new View.OnClickListener() {
+        next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SignUp.class);
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                 startActivity(intent);
                 finish();
             }
