@@ -100,6 +100,17 @@
             android:text="New User? SingUp Now"
             android:textColor="@color/black" />
 
+        <Button
+            android:id="@+id/skip_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SKIP > "
+            android:textColor="@color/black"
+            android:background="#00000000"
+            android:elevation="0dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"/>
+
     </LinearLayout>
 
 </LinearLayout>

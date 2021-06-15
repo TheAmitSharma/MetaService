@@ -38,7 +38,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="160dp"
                 android:includeFontPadding="false"
-                android:text="Roomie"
+                android:text="Hey there!"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
         </RelativeLayout>

@@ -20,13 +20,13 @@ public class MainActivity extends AppCompatActivity {
     //Initializing variables
     Spinner spinner, spinner2;
     TextView textView, textView2;
-    Button cancel_button;
+    Button cancel_button, profile_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
 
         //Assigning Variables
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         textView = findViewById(R.id.text_view);
         cancel_button = findViewById(R.id.cancel_button);
+        profile_button = findViewById(R.id.profile_button);
 
 
 
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,SignUp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        profile_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,UserProfile.class);
                 startActivity(intent);
                 finish();
             }

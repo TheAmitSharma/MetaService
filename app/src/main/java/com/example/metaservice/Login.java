@@ -10,19 +10,20 @@ import android.widget.Button;
 
 public class Login extends AppCompatActivity {
 
-    Button callMainActivity, signup_loginpage_button;
+    Button callMainActivity, signup_loginpage_button, skip_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         callMainActivity = findViewById(R.id.callMainActivity);
         signup_loginpage_button = findViewById(R.id.signup_loginpage_button);
+        skip_login = findViewById(R.id.skip_login);
 
 
-        //Switch to Main Activity Page
+        //Switch to Other Activities
         callMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +36,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Login.this,SignUp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        skip_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }

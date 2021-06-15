@@ -21,15 +21,19 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.io.FileInputStream;
+
 public class SignUp extends AppCompatActivity {
 
-    Button signup_button, login_button;
+    Button signup_button, login_button, skip_signup;
     private GoogleSignInClient mGoogleSignInClient;
     private static int RC_SIGN_IN ;
     private FirebaseAuth mAuth;
@@ -52,6 +56,7 @@ public class SignUp extends AppCompatActivity {
         //Assigning Variables
         login_button = findViewById(R.id.login_button);
         signup_button = findViewById(R.id.signup_button);
+        skip_signup = findViewById(R.id.skip_signup);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -64,15 +69,25 @@ public class SignUp extends AppCompatActivity {
                finish();
            }
        });
+       //Switch to main page
+        skip_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
        signup_button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                signIn();
+
            }
        });
 
-       createRequest();
+        createRequest();
     }
 
     private void createRequest() {
@@ -83,11 +98,13 @@ public class SignUp extends AppCompatActivity {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
     }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
     @Override
@@ -103,7 +120,8 @@ public class SignUp extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(this,"SignUp Failed Error: " + e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -119,6 +137,7 @@ public class SignUp extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(),UserProfile.class);
                             startActivity(intent);
                             FirebaseUser user = mAuth.getCurrentUser();
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(SignUp.this,"SignUp failed",Toast.LENGTH_SHORT).show();
