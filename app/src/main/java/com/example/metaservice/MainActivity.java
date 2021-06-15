@@ -2,11 +2,13 @@ package com.example.metaservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     //Initializing variables
     Spinner spinner, spinner2;
     TextView textView, textView2;
+    Button cancel_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,18 @@ public class MainActivity extends AppCompatActivity {
         //Variable for Select Category
         spinner = findViewById(R.id.spinner);
         textView = findViewById(R.id.text_view);
+        cancel_button = findViewById(R.id.cancel_button);
 
+
+
+        cancel_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SignUp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         //Variable for Problem Description
 
 
